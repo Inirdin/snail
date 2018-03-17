@@ -8,6 +8,17 @@ public class LevelManager : MonoBehaviour {
     public GameObject player;
     public int currentLevel = 0;
 
+
+
+    private void Awake()
+    {
+        if(LevelManager.instance != null)
+        {
+            Destroy(gameObject);
+        }
+
+        else LevelManager.instance = this;
+    }
     public void NextLevel()
     {
         levels[currentLevel].SetActive(false);
@@ -18,6 +29,6 @@ public class LevelManager : MonoBehaviour {
 
     public void Respawn()
     {
-
+        player.transform.position = levels[currentLevel].transform.GetChild(0).transform.position;
     }
 }

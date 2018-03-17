@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject mainCamera;
     public GameObject spawnInside;
     public GameObject spawnOutside;
+    public GameObject respawnOutside;
     public Vector2 velocityInside;
     public Vector2 velocityOutside;
     public Vector2 velocityCurrent;
@@ -162,6 +163,24 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+
+    public void RespawnInside()
+    {
+
+    }
+
+    public void RespawnOutside(bool change, Vector2 that)
+    {
+        if (change)
+        {
+            respawnOutside.transform.position = that;
+        }
+        else
+        {
+            transform.position = respawnOutside.transform.position;
+        }
+    }
+
 
     void Flip ()
 	{
